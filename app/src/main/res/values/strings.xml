@@ -13,5 +13,13 @@
     <string name="dice_3">Dice_3</string>
     <string name="dice_4">Dice_4</string>
     <string name="dice_5">Dice_5</string>
+    <string name="three_of_a_kind">3 of a kind!</string>
+    <string name="five_of_a_kind">5 of a kind!</string>
+    <string name="four_of_a_kind">4 of a kind!</string>
+    <string name="full_house">Full house!</string>
+    <string name="straight">That\'s a straight!</string>
+    <string name="pair">That\'s a pair!</string>
+    <string name="two_pairs">Two pairs!</string>
+    <string name="nothing_special">Nothing special</string>
 
 </resources>
