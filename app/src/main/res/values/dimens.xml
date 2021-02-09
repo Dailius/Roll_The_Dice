@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="container_padding">8dp</dimen>
+    <dimen name="padding_bottom_high">50dp</dimen>
+    <dimen name="padding_bottom_Normal">8dp</dimen>
 </resources>

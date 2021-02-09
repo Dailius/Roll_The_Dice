@@ -21,7 +21,7 @@
             android:gravity="center"
             android:text="@string/count"
             android:textColor="@color/black"
-            android:paddingBottom="45dp"
+            android:paddingBottom="@dimen/padding_bottom_high"
             android:textSize="100sp" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingBottom="50dp">
+            android:paddingBottom="@dimen/padding_bottom_high">
 
 
             <ImageView
