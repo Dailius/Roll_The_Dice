@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DiceFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/txtCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/count"
+            android:textColor="@color/black"
+            android:paddingBottom="45dp"
+            android:textSize="100sp" />
+
+        <TextView
+            android:id="@+id/txtCombination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:text="@string/roll_again"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="50dp">
+
+
+            <ImageView
+                android:id="@+id/imgDice1"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:contentDescription="@string/dice_1"
+                android:visibility="visible"
+                android:src="@drawable/wp_dice1"/>
+
+            <ImageView
+                android:id="@+id/imgDice2"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:contentDescription="@string/dice_2"
+                android:visibility="gone"
+                android:src="@drawable/wp_dice2"/>
+
+            <ImageView
+                android:id="@+id/imgDice3"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:contentDescription="@string/dice_3"
+                android:visibility="gone"
+                android:src="@drawable/wp_dice3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imgDice4"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:contentDescription="@string/dice_4"
+                android:visibility="gone"
+                android:src="@drawable/wp_dice4" />
+
+            <ImageView
+                android:id="@+id/imgDice5"
+                android:layout_width="98dp"
+                android:layout_height="89dp"
+                android:contentDescription="@string/dice_5"
+                android:visibility="gone"
+                android:src="@drawable/wp_dice5" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRoll"
+            android:layout_width="142dp"
+            android:layout_height="115dp"
+            android:text="@string/roll" />
+
+    </LinearLayout>
+
+</FrameLayout>

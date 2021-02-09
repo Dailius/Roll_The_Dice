@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,8 +9,8 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:theme="@style/Theme.Rolldice.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -18,101 +18,28 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.Rolldice.PopupOverlay"/>
+            app:popupTheme="@style/Theme.Rolldice.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/havHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="675dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.407"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:navGraph="@navigation/nav_graph">
 
-        <TextView
-            android:id="@+id/txtCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="@string/count"
-            android:textColor="@color/black"
-            android:textSize="100sp"/>
-
-        <TextView
-            android:id="@+id/txtCombination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="16dp"
-            android:text="@string/roll_again"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-
-            <ImageView
-                android:id="@+id/imgDice1"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                app:srcCompat="@drawable/wp_dice1"
-                android:contentDescription="@string/dice_1" />
-
-            <ImageView
-                android:id="@+id/imgDice2"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                app:srcCompat="@drawable/wp_dice2"
-                android:contentDescription="@string/dice_2"/>
-
-            <ImageView
-                android:id="@+id/imgDice3"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                app:srcCompat="@drawable/wp_dice3"
-                android:contentDescription="@string/dice_3"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/imgDice4"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                app:srcCompat="@drawable/wp_dice4"
-                android:contentDescription="@string/dice_4"/>
-
-            <ImageView
-                android:id="@+id/imgDice5"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                app:srcCompat="@drawable/wp_dice5"
-                android:contentDescription="@string/dice_5"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnRoll"
-            android:layout_width="142dp"
-            android:layout_height="115dp"
-            android:text="@string/roll" />
-
-    </LinearLayout>
-
+        </androidx.fragment.app.FragmentContainerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
