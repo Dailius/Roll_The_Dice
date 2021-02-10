@@ -17,8 +17,8 @@
     <string name="five_of_a_kind">5 of a kind!</string>
     <string name="four_of_a_kind">4 of a kind!</string>
     <string name="full_house">Full house!</string>
-    <string name="straight">That\'s a straight!</string>
-    <string name="pair">That\'s a pair!</string>
+    <string name="straight">Straight!</string>
+    <string name="pair">Pair!</string>
     <string name="two_pairs">Two pairs!</string>
     <string name="nothing_special">Nothing special</string>
     <string name="add_the_dice">Add the Dice</string>
