@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DiceFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_Normal_16dp"
+            android:layout_marginBottom="@dimen/padding_Normal_32dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_the_dice"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCombination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_Normal_8dp"
+            android:text="@string/roll_again"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/imgRedButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout" />
+
+        <ImageView
+            android:id="@+id/imgRedButton"
+            android:layout_width="274dp"
+            android:layout_height="161dp"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/red_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            android:contentDescription="@string/roll_button" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgRedButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:id="@+id/txtCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="@dimen/padding_Normal_8dp"
+                android:text="@string/count"
+                android:textColor="@color/black"
+                android:textSize="80sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_Normal_16dp">
+
+
+                <ImageView
+                    android:id="@+id/imgDice1"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_1"
+                    android:src="@drawable/wp_dice1"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgDice2"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_2"
+                    android:src="@drawable/wp_dice2"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgDice3"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_3"
+                    android:src="@drawable/wp_dice3"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_Normal_8dp">
+
+                <ImageView
+                    android:id="@+id/imgDice4"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_4"
+                    android:src="@drawable/wp_dice4"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgDice5"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_5"
+                    android:src="@drawable/wp_dice5"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

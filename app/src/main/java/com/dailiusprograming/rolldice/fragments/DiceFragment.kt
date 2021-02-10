@@ -84,7 +84,7 @@ class DiceFragment : Fragment() {
             if (count >= 3) binding.imgDice3.isGone = false
             if (count >= 4) {
                 binding.imgDice4.isGone = false
-                setPaddingToNormal(binding)
+//                setPaddingToNormal(binding)
             }
             if (count >= 5) {
                 binding.imgDice5.isGone = false
@@ -97,7 +97,7 @@ class DiceFragment : Fragment() {
         binding.imgDice1.isGone = false
         binding.txtCount.text = "0"
         binding.txtCombination.isGone = true
-        setPaddingToHigh(binding)
+//        setPaddingToHigh(binding)
         binding.imgDice2.isGone = true
         binding.imgDice3.isGone = true
         binding.imgDice4.isGone = true
