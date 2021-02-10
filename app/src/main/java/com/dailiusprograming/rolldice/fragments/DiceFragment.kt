@@ -26,36 +26,45 @@ class DiceFragment : Fragment() {
         diceFragmentBinding = binding
 
         var count = 1
-
         setDiceVisible(count, binding)
 
-        binding.btnRoll.setOnClickListener {
-//            val rollDice = DiceHelper.rollDice()
-//            val data = DiceHelper.calculateDice(count, rollDice)
-//            Toast.makeText(
-//                context,
-//                "rolled dice ${rollDice.size}, $data, ${rollDice[0]} ",
-//                Toast.LENGTH_SHORT
-//            ).show()
+        binding.fab.setOnClickListener{
             count += 1
-            if (count > 5) count=1
-
+            if (count > 5) count = 1
             setDiceVisible(count, binding)
+        }
+
+        binding.imgRedButton.setOnClickListener{
 
         }
+
+//        binding.btnRoll.setOnClickListener {
+////            val rollDice = DiceHelper.rollDice()
+////            val data = DiceHelper.calculateDice(count, rollDice)
+////            Toast.makeText(
+////                context,
+////                "rolled dice ${rollDice.size}, $data, ${rollDice[0]} ",
+////                Toast.LENGTH_SHORT
+////            ).show()
+//
+//
+//        }
+
+
+
 
 
         return binding.root
     }
 
     private fun setPaddingToNormal(binding: DiceFragmentBinding) {
-        binding.txtCount.setPadding(0,0,0,8)
-        binding.linearLayout2.setPadding(0,0,0,32)
+        binding.txtCount.setPadding(0, 0, 0, 8)
+        binding.linearLayout2.setPadding(0, 0, 0, 50)
     }
 
     private fun setPaddingToHigh(binding: DiceFragmentBinding) {
-        binding.txtCount.setPadding(0,0,0,50)
-        binding.linearLayout2.setPadding(0,0,0,50)
+        binding.txtCount.setPadding(0, 0, 0, 60)
+        binding.linearLayout2.setPadding(0, 0, 0, 80)
     }
 
     private fun setDiceVisible(count: Int?, binding: DiceFragmentBinding) {
@@ -77,7 +86,7 @@ class DiceFragment : Fragment() {
         }
     }
 
-    private fun setDiceDefault(binding: DiceFragmentBinding){
+    private fun setDiceDefault(binding: DiceFragmentBinding) {
         binding.imgDice1.isGone = false
         binding.txtCombination.isGone = true
         setPaddingToHigh(binding)
@@ -97,7 +106,6 @@ class DiceFragment : Fragment() {
         diceFragmentBinding = null
         super.onDestroyView()
     }
-
 
 
 }

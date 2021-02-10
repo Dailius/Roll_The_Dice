@@ -1,106 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.DiceFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtCount"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="@string/count"
-            android:textColor="@color/black"
-            android:paddingBottom="@dimen/padding_bottom_high"
-            android:textSize="100sp" />
-
-        <TextView
-            android:id="@+id/txtCombination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="16dp"
-            android:text="@string/roll_again"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:visibility="gone" />
+            android:layout_marginEnd="@dimen/padding_Normal_16dp"
+            android:layout_marginBottom="@dimen/padding_Normal_32dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_the_dice"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/padding_bottom_high">
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="0dp">
 
+            <TextView
+                android:id="@+id/txtCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingBottom="@dimen/padding_Normal_16dp"
+                android:text="@string/count"
+                android:textColor="@color/black"
+                android:textSize="100sp" />
+
+            <TextView
+                android:id="@+id/txtCombination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="@string/roll_again"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_Normal_16dp">
+
+
+                <ImageView
+                    android:id="@+id/imgDice1"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_1"
+                    android:src="@drawable/wp_dice1"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgDice2"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_2"
+                    android:src="@drawable/wp_dice2"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgDice3"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_3"
+                    android:src="@drawable/wp_dice3"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_Normal_8dp">
+
+                <ImageView
+                    android:id="@+id/imgDice4"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_4"
+                    android:src="@drawable/wp_dice4"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgDice5"
+                    android:layout_width="98dp"
+                    android:layout_height="89dp"
+                    android:contentDescription="@string/dice_5"
+                    android:src="@drawable/wp_dice5"
+                    android:visibility="gone" />
+
+            </LinearLayout>
 
             <ImageView
-                android:id="@+id/imgDice1"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                android:contentDescription="@string/dice_1"
-                android:visibility="visible"
-                android:src="@drawable/wp_dice1"/>
+                android:id="@+id/imgRedButton"
+                android:layout_width="274dp"
+                android:layout_height="161dp"
+                android:src="@drawable/red_button" />
 
-            <ImageView
-                android:id="@+id/imgDice2"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                android:contentDescription="@string/dice_2"
-                android:visibility="gone"
-                android:src="@drawable/wp_dice2"/>
-
-            <ImageView
-                android:id="@+id/imgDice3"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                android:contentDescription="@string/dice_3"
-                android:visibility="gone"
-                android:src="@drawable/wp_dice3" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/imgDice4"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                android:contentDescription="@string/dice_4"
-                android:visibility="gone"
-                android:src="@drawable/wp_dice4" />
-
-            <ImageView
-                android:id="@+id/imgDice5"
-                android:layout_width="98dp"
-                android:layout_height="89dp"
-                android:contentDescription="@string/dice_5"
-                android:visibility="gone"
-                android:src="@drawable/wp_dice5" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnRoll"
-            android:layout_width="142dp"
-            android:layout_height="115dp"
-            android:text="@string/roll" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
