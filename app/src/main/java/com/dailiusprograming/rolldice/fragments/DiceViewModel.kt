@@ -2,7 +2,7 @@ package com.dailiusprograming.rolldice.fragments
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dailiusprograming.rolldice.R
+import com.dailiusprograming.rolldice.util.AppPreferences
 import com.dailiusprograming.rolldice.util.DiceHelper
 
 class DiceViewModel() : ViewModel() {
@@ -14,21 +14,23 @@ class DiceViewModel() : ViewModel() {
 
 
     init {
-        diceCombinationName.value = R.string.welcome
-        randomDice.value = intArrayOf(1, 1, 1, 1, 1)
-        diceAdd.value = 1
+        diceAdd.value = AppPreferences.diceNo
+        randomDice.value = AppPreferences.diceRoll
+        diceCombinationName.value = DiceHelper.evaluateDice(randomDice.value)
+        diceCalc.value = DiceHelper.calculateDice(diceAdd.value, randomDice.value)
     }
 
     fun rollDice() {
         randomDice.value = DiceHelper.rollDice()
+        AppPreferences.diceRoll = randomDice.value!!
         diceCombinationName.value = DiceHelper.evaluateDice(randomDice.value)
         diceCalc.value = DiceHelper.calculateDice(diceAdd.value, randomDice.value)
     }
 
     fun addDice() {
-        diceAdd.value = diceAdd.value?.plus(1)
-        if (diceAdd.value!! > 5) diceAdd.value = 1
+        diceAdd.value = diceAdd.value?.let { DiceHelper.addDice(it) }
+        AppPreferences.diceNo = diceAdd.value!!
+        diceCalc.value = DiceHelper.calculateDice(diceAdd.value, randomDice.value)
     }
-
 
 }

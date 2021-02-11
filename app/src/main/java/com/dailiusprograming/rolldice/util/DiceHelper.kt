@@ -92,5 +92,9 @@ class DiceHelper {
                     dice.contains(4) &&
                     dice.contains(5)
         }
+
+        fun addDice(dice: Int): Int{
+            return if(dice>=5) 1 else dice+1
+        }
     }
 }
