@@ -5,7 +5,7 @@
     <string name="dice">Dice</string>
     <string name="open_nav_drawer">Open navigation drawer</string>
     <string name="close_nav_drawer">Close navigation drawer</string>
-    <string name="count">33</string>
+    <string name="count">0</string>
     <string name="roll_again">Roll again!</string>
     <string name="roll">Roll</string>
     <string name="dice_1">Dice 1</string>
@@ -23,5 +23,7 @@
     <string name="nothing_special">Nothing special</string>
     <string name="add_the_dice">Add the Dice</string>
     <string name="roll_button">Roll button</string>
+    <string name="welcome">Welcome!</string>
+    <string name="red_button">Red button</string>
 
 </resources>

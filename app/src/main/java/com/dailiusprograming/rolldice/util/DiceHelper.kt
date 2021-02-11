@@ -1,6 +1,5 @@
 package com.dailiusprograming.rolldice.util
 
-import android.content.Context
 import com.dailiusprograming.rolldice.R
 import kotlin.random.Random
 
@@ -12,7 +11,6 @@ class DiceHelper {
             return Random.nextInt(1, 7)
         }
 
-
         fun rollDice(): IntArray {
             return intArrayOf(
                 getDice(),
@@ -23,17 +21,17 @@ class DiceHelper {
             )
         }
 
-        fun calculateDice(count: Int, dice: IntArray?): Int{
+        fun calculateDice(count: Int?, dice: IntArray?): Int {
             var calculate: Int = 0
-            for (i in 0 until count) {
-                calculate += dice?.get(i) ?:1
+            if (count != null) {
+                for (i in 0 until count) {
+                    calculate += dice?.get(i) ?: 1
+                }
             }
             return calculate
         }
 
-
-
-        fun evaluateDice(context: Context, dice: IntArray?): String {
+        fun evaluateDice(dice: IntArray?): Int {
 
             // Initialize a map of die counts
             val result = mutableMapOf(
@@ -54,21 +52,21 @@ class DiceHelper {
             // Check possible outcomes in order of best roll
             return when {
                 result.containsValue(5) ->
-                    context.getString(R.string.five_of_a_kind)
+                    R.string.five_of_a_kind
                 result.containsValue(4) ->
-                    context.getString(R.string.four_of_a_kind)
+                    R.string.four_of_a_kind
                 isFullHouse(result) ->
-                    context.getString(R.string.full_house)
+                    R.string.full_house
                 isStraight(dice) ->
-                    context.getString(R.string.straight)
+                    R.string.straight
                 result.containsValue(3) ->
-                    context.getString(R.string.three_of_a_kind)
+                    R.string.three_of_a_kind
                 is2Pairs(result.values) ->
-                    context.getString(R.string.two_pairs)
+                    R.string.two_pairs
                 result.containsValue(2) ->
-                    context.getString(R.string.pair)
+                    R.string.pair
                 else ->
-                    context.getString(R.string.nothing_special)
+                    R.string.nothing_special
             }
 
         }
@@ -94,6 +92,5 @@ class DiceHelper {
                     dice.contains(4) &&
                     dice.contains(5)
         }
-
     }
 }

@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
-import com.dailiusprograming.rolldice.util.DiceHelper
 
-class DiceFragment : Fragment() {
+class DiceFragment() : Fragment() {
 
 //    companion object {
 //        fun newInstance() = DiceFragment()
@@ -36,43 +36,53 @@ class DiceFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         val binding = DiceFragmentBinding.inflate(inflater, container, false)
         diceFragmentBinding = binding
 
         val viewTxtCount = binding.txtCount
         val viewTxtComb = binding.txtCombination
-        val context = context
 
-        var count = 1
-        setDiceVisible(count, binding)
+        viewModel = ViewModelProvider(this)
+            .get(DiceViewModel::class.java)
+
+        viewModel.diceAdd.observe(viewLifecycleOwner, {
+            setDiceVisible(it, binding)
+        })
+
+        viewModel.diceCombinationName.observe(viewLifecycleOwner, {
+            viewTxtComb.text = getString(it)
+        })
+
+        viewModel.randomDice.observe(viewLifecycleOwner, {
+            updateDisplay(it)
+        })
+
+        viewModel.diceCalc.observe(viewLifecycleOwner, {
+            viewTxtCount.text = it.toString()
+        })
 
         binding.fab.setOnClickListener {
-            count += 1
-            if (count > 5) count = 1
-            setDiceVisible(count, binding)
+            viewModel.addDice()
         }
 
         binding.imgRedButton.setOnClickListener {
-            val rollDice = DiceHelper.rollDice()
-            val data = DiceHelper.calculateDice(count, rollDice)
-            viewTxtCount.text = data.toString()
-            viewTxtComb.text = context?.let { it1 -> DiceHelper.evaluateDice(it1, rollDice) }
-            updateDisplay(rollDice)
+            viewModel.rollDice()
         }
 
         return binding.root
     }
 
-    private fun setPaddingToNormal(binding: DiceFragmentBinding) {
-        binding.txtCount.setPadding(0, 0, 0, 8)
-        binding.linearLayout2.setPadding(0, 0, 0, 50)
-    }
+//    private fun setPaddingToNormal(binding: DiceFragmentBinding) {
+//        binding.txtCount.setPadding(0, 0, 0, 8)
+//        binding.linearLayout2.setPadding(0, 0, 0, 50)
+//    }
 
-    private fun setPaddingToHigh(binding: DiceFragmentBinding) {
-        binding.txtCount.setPadding(0, 0, 0, 60)
-        binding.linearLayout2.setPadding(0, 0, 0, 80)
-    }
+//    private fun setPaddingToHigh(binding: DiceFragmentBinding) {
+//        binding.txtCount.setPadding(0, 0, 0, 0)
+//        binding.linearLayout2.setPadding(0, 40, 0, 0)
+//    }
 
     private fun setDiceVisible(count: Int?, binding: DiceFragmentBinding) {
 
@@ -96,7 +106,7 @@ class DiceFragment : Fragment() {
     private fun setDiceDefault(binding: DiceFragmentBinding) {
         binding.imgDice1.isGone = false
         binding.txtCount.text = "0"
-        binding.txtCombination.isGone = true
+        binding.txtCombination.isInvisible = true
 //        setPaddingToHigh(binding)
         binding.imgDice2.isGone = true
         binding.imgDice3.isGone = true
@@ -117,12 +127,6 @@ class DiceFragment : Fragment() {
             }
             imageViews?.get(i)?.setImageResource(drawableId)
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DiceViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     override fun onDestroyView() {
