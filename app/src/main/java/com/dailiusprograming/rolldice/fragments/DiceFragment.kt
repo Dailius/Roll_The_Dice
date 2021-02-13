@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
@@ -14,12 +15,10 @@ import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
 
 class DiceFragment() : Fragment() {
 
-//    companion object {
-//        fun newInstance() = DiceFragment()
-//    }
-
     private lateinit var viewModel: DiceViewModel
     private var diceFragmentBinding: DiceFragmentBinding? = null
+    private lateinit var viewTxtCount: TextView
+    private lateinit var viewTxtComb: TextView
 
     private val imageViews by lazy {
         diceFragmentBinding?.let {
@@ -41,14 +40,14 @@ class DiceFragment() : Fragment() {
         val binding = DiceFragmentBinding.inflate(inflater, container, false)
         diceFragmentBinding = binding
 
-        val viewTxtCount = binding.txtCount
-        val viewTxtComb = binding.txtCombination
+        viewTxtCount = binding.txtCount
+        viewTxtComb = binding.txtCombination
 
         viewModel = ViewModelProvider(this)
             .get(DiceViewModel::class.java)
 
         viewModel.diceAdd.observe(viewLifecycleOwner, {
-            setDiceVisible(it, binding)
+            setDiceVisible(it)
         })
 
         viewModel.diceCombinationName.observe(viewLifecycleOwner, {
@@ -84,34 +83,36 @@ class DiceFragment() : Fragment() {
 //        binding.linearLayout2.setPadding(0, 40, 0, 0)
 //    }
 
-    private fun setDiceVisible(count: Int?, binding: DiceFragmentBinding) {
+    private fun setDiceVisible(count: Int?) {
 
-        setDiceDefault(binding)
+        setDiceDefault()
 
         if (count != null) {
-            if (count >= 2) binding.imgDice2.isGone = false
+            if (count >= 2) imageViews?.get(1)?.isGone = false
 
-            if (count >= 3) binding.imgDice3.isGone = false
+            if (count >= 3) imageViews?.get(2)?.isGone = false
             if (count >= 4) {
-                binding.imgDice4.isGone = false
+                imageViews?.get(3)?.isGone = false
 //                setPaddingToNormal(binding)
             }
             if (count >= 5) {
-                binding.imgDice5.isGone = false
-                binding.txtCombination.isGone = false
+                imageViews?.get(4)?.isGone = false
+                viewTxtComb.isGone = false
             }
         }
     }
 
-    private fun setDiceDefault(binding: DiceFragmentBinding) {
-        binding.imgDice1.isGone = false
-        binding.txtCount.text = "0"
-        binding.txtCombination.isInvisible = true
+    private fun setDiceDefault() {
+        imageViews?.get(0)?.isGone = false
+        viewTxtCount.text = "0"
+        viewTxtComb.isInvisible = true
 //        setPaddingToHigh(binding)
-        binding.imgDice2.isGone = true
-        binding.imgDice3.isGone = true
-        binding.imgDice4.isGone = true
-        binding.imgDice5.isGone = true
+        imageViews?.get(1)?.isGone = true
+        imageViews?.get(2)?.isGone = true
+        imageViews?.get(3)?.isGone = true
+        imageViews?.get(4)?.isGone = true
+
+
     }
 
     private fun updateDisplay(dice: IntArray) {
@@ -133,6 +134,4 @@ class DiceFragment() : Fragment() {
         diceFragmentBinding = null
         super.onDestroyView()
     }
-
-
 }
