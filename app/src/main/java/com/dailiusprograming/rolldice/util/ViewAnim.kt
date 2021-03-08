@@ -92,7 +92,7 @@ class ViewAnim {
             valueStart: Float,
             valueEnd: Float,
             durationTime: Long = ANIM_DICE_START,
-            interPolator: Boolean = false
+            interpolatorActive: Boolean = false
         ): ObjectAnimator {
 
             return ObjectAnimator.ofFloat(
@@ -101,7 +101,7 @@ class ViewAnim {
                 valueStart, valueEnd
             ).apply {
                 duration = durationTime
-                if (interPolator) interpolator = BounceInterpolator()
+                if (interpolatorActive) interpolator = BounceInterpolator()
             }
         }
 

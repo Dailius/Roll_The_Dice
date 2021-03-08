@@ -19,6 +19,7 @@ class DiceFragment : Fragment() {
     private var diceFragmentBinding: DiceFragmentBinding? = null
     private lateinit var viewTxtCount: TextView
     private lateinit var viewTxtComb: TextView
+    private var btnClicked: Boolean = false
 
     private val imageViews by lazy {
         diceFragmentBinding?.let {
@@ -36,6 +37,7 @@ class DiceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
 
         val binding = DiceFragmentBinding.inflate(inflater, container, false)
         diceFragmentBinding = binding
@@ -69,6 +71,7 @@ class DiceFragment : Fragment() {
         binding.imgRedButton.setOnClickListener {
             ViewAnim.animTextViewStart(viewTxtComb)
             ViewAnim.animTextViewStart(viewTxtCount)
+            btnClicked = true
             viewModel.rollDice()
         }
 
@@ -119,13 +122,22 @@ class DiceFragment : Fragment() {
             }
             animDelay += 150
 
-            imageViews?.get(i)?.let {
-                ViewAnim.animDice(it, drawableId, animDelay)
+            if (btnClicked) {
+                imageViews?.get(i)?.let {
+                    ViewAnim.animDice(it, drawableId, animDelay)
+                }
+                textAnimation(i, animDelay)
+            } else {
+                imageViews?.get(i)?.setImageResource(drawableId)
             }
-            if (i == imageViews?.size?.minus(1) ?: 5) {
-                ViewAnim.animTextViewEnd(viewTxtComb, animDelay)
-                ViewAnim.animTextViewEnd(viewTxtCount, animDelay)
-            }
+        }
+        btnClicked = false
+    }
+
+    private fun textAnimation(i: Int, animDelay: Long) {
+        if (i == imageViews?.size?.minus(1) ?: 5) {
+            ViewAnim.animTextViewEnd(viewTxtComb, animDelay)
+            ViewAnim.animTextViewEnd(viewTxtCount, animDelay)
         }
     }
 
@@ -133,6 +145,5 @@ class DiceFragment : Fragment() {
         diceFragmentBinding = null
         super.onDestroyView()
     }
-
 
 }
