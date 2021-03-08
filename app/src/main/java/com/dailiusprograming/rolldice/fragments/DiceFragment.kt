@@ -1,5 +1,9 @@
 package com.dailiusprograming.rolldice.fragments
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -126,7 +130,54 @@ class DiceFragment() : Fragment() {
                 6 -> R.drawable.wp_dice6
                 else -> R.drawable.ic_add
             }
-            imageViews?.get(i)?.setImageResource(drawableId)
+
+            val startAnimDiceX = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "scaleX", 1f, 0f
+            ).apply { duration = 500 }
+
+            val startAnimDiceY = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "scaleY", 1f, 0f
+            ).apply { duration = 500 }
+
+            val startRotateDice = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "rotation", 0f, 360f
+            ).apply { duration = 500 }
+
+            startAnimDiceX.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator?) {
+                    imageViews?.get(i)?.setImageResource(drawableId)
+                    super.onAnimationEnd(animation)
+                }
+            })
+            val endRotateDice = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "rotation", 0f, 360f
+            ).apply { duration = 500 }
+
+            val endAnimDiceX = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "scaleX", 0f, 1f
+            ).apply { duration = 500 }
+
+            val endAnimDiceY = ObjectAnimator.ofFloat(
+                imageViews?.get(i),
+                "scaleY", 0f, 1f
+            ).apply { duration = 500 }
+
+
+            val setAnimDice = AnimatorSet().apply {
+                playTogether(startAnimDiceX, startAnimDiceY, startRotateDice)
+                play(endAnimDiceX).after(startAnimDiceY)
+                play(endAnimDiceX).with(endAnimDiceY)
+                play(endAnimDiceX).with(endRotateDice)
+                startDelay=100
+                start()
+            }
+
+
         }
     }
 
