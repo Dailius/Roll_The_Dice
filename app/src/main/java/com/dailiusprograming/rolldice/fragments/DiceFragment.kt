@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
@@ -14,7 +13,7 @@ import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
 import com.dailiusprograming.rolldice.util.ViewAnim
 
-class DiceFragment() : Fragment() {
+class DiceFragment : Fragment() {
 
     private lateinit var viewModel: DiceViewModel
     private var diceFragmentBinding: DiceFragmentBinding? = null
@@ -23,7 +22,7 @@ class DiceFragment() : Fragment() {
 
     private val imageViews by lazy {
         diceFragmentBinding?.let {
-            arrayOf<ImageView>(
+            arrayOf(
                 it.imgDice1,
                 it.imgDice2,
                 it.imgDice3,
@@ -68,21 +67,13 @@ class DiceFragment() : Fragment() {
         }
 
         binding.imgRedButton.setOnClickListener {
+            ViewAnim.animTextViewStart(viewTxtComb)
+            ViewAnim.animTextViewStart(viewTxtCount)
             viewModel.rollDice()
         }
 
         return binding.root
     }
-
-//    private fun setPaddingToNormal(binding: DiceFragmentBinding) {
-//        binding.txtCount.setPadding(0, 0, 0, 8)
-//        binding.linearLayout2.setPadding(0, 0, 0, 50)
-//    }
-
-//    private fun setPaddingToHigh(binding: DiceFragmentBinding) {
-//        binding.txtCount.setPadding(0, 0, 0, 0)
-//        binding.linearLayout2.setPadding(0, 40, 0, 0)
-//    }
 
     private fun setDiceVisible(count: Int?) {
 
@@ -127,8 +118,14 @@ class DiceFragment() : Fragment() {
                 else -> R.drawable.ic_add
             }
             animDelay += 150
-            imageViews?.get(i)?.let { ViewAnim.animDice(it, drawableId, animDelay) }
 
+            imageViews?.get(i)?.let {
+                ViewAnim.animDice(it, drawableId, animDelay)
+            }
+            if (i == imageViews?.size?.minus(1) ?: 5) {
+                ViewAnim.animTextViewEnd(viewTxtComb, animDelay)
+                ViewAnim.animTextViewEnd(viewTxtCount, animDelay)
+            }
         }
     }
 
