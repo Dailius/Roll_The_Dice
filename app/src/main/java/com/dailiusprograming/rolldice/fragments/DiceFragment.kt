@@ -1,9 +1,5 @@
 package com.dailiusprograming.rolldice.fragments
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
+import com.dailiusprograming.rolldice.util.ViewAnim
 
 class DiceFragment() : Fragment() {
 
@@ -115,11 +112,10 @@ class DiceFragment() : Fragment() {
         imageViews?.get(2)?.isGone = true
         imageViews?.get(3)?.isGone = true
         imageViews?.get(4)?.isGone = true
-
-
     }
 
     private fun updateDisplay(dice: IntArray) {
+        var animDelay: Long = 0
         for (i in 0 until (imageViews?.size ?: 0)) {
             val drawableId = when (dice[i]) {
                 1 -> R.drawable.wp_dice1
@@ -130,53 +126,8 @@ class DiceFragment() : Fragment() {
                 6 -> R.drawable.wp_dice6
                 else -> R.drawable.ic_add
             }
-
-            val startAnimDiceX = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "scaleX", 1f, 0f
-            ).apply { duration = 500 }
-
-            val startAnimDiceY = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "scaleY", 1f, 0f
-            ).apply { duration = 500 }
-
-            val startRotateDice = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "rotation", 0f, 360f
-            ).apply { duration = 500 }
-
-            startAnimDiceX.addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    imageViews?.get(i)?.setImageResource(drawableId)
-                    super.onAnimationEnd(animation)
-                }
-            })
-            val endRotateDice = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "rotation", 0f, 360f
-            ).apply { duration = 500 }
-
-            val endAnimDiceX = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "scaleX", 0f, 1f
-            ).apply { duration = 500 }
-
-            val endAnimDiceY = ObjectAnimator.ofFloat(
-                imageViews?.get(i),
-                "scaleY", 0f, 1f
-            ).apply { duration = 500 }
-
-
-            val setAnimDice = AnimatorSet().apply {
-                playTogether(startAnimDiceX, startAnimDiceY, startRotateDice)
-                play(endAnimDiceX).after(startAnimDiceY)
-                play(endAnimDiceX).with(endAnimDiceY)
-                play(endAnimDiceX).with(endRotateDice)
-                startDelay=100
-                start()
-            }
-
+            animDelay += 150
+            imageViews?.get(i)?.let { ViewAnim.animDice(it, drawableId, animDelay) }
 
         }
     }
@@ -185,4 +136,6 @@ class DiceFragment() : Fragment() {
         diceFragmentBinding = null
         super.onDestroyView()
     }
+
+
 }

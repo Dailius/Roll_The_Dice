@@ -11,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId "com.dailiusprograming.rolldice"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
