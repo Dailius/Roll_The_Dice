@@ -117,12 +117,15 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imgRedButton"
+            <ImageButton
+                android:id="@+id/ibtRedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:contentDescription="@string/red_button"
+                android:scaleType="centerCrop"
                 android:src="@drawable/red_button_scd" />
+
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

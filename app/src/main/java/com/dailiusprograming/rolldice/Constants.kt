@@ -7,4 +7,7 @@ const val PREF_MODE = Context.MODE_PRIVATE
 const val DICE_TYPE_WHITE = "white"
 const val ANIM_DICE_START:Long = 300
 const val ANIM_DICE_END:Long = 700
+const val ANIM_TEXT_START:Long = 100
+const val ANIM_IBTN:Long = 1000
+
 

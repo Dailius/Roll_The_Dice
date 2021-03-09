@@ -10,30 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <Space
+            android:id="@+id/space"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:text="@string/welcome"
-            android:textSize="50sp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/imgRedButton"
+            app:layout_constraintBottom_toTopOf="@+id/ibtRedButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgRedButton"
+        <ImageButton
+            android:id="@+id/ibtRedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@color/white"
             android:contentDescription="@string/red_button"
+            android:scaleType="centerCrop"
             android:src="@drawable/red_button_scd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/space" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -58,7 +57,7 @@
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imgRedButton"
+            app:layout_constraintEnd_toStartOf="@+id/ibtRedButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -1,14 +1,19 @@
 package com.dailiusprograming.rolldice.fragments
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.dailiusprograming.rolldice.ANIM_TEXT_START
 import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
 import com.dailiusprograming.rolldice.util.ViewAnim
@@ -19,7 +24,9 @@ class DiceFragment : Fragment() {
     private var diceFragmentBinding: DiceFragmentBinding? = null
     private lateinit var viewTxtCount: TextView
     private lateinit var viewTxtComb: TextView
+    private lateinit var ibtButton: ImageButton
     private var btnClicked: Boolean = false
+
 
     private val imageViews by lazy {
         diceFragmentBinding?.let {
@@ -44,6 +51,7 @@ class DiceFragment : Fragment() {
 
         viewTxtCount = binding.txtCount
         viewTxtComb = binding.txtCombination
+        ibtButton = binding.ibtRedButton
 
         viewModel = ViewModelProvider(this)
             .get(DiceViewModel::class.java)
@@ -68,14 +76,26 @@ class DiceFragment : Fragment() {
             viewModel.addDice()
         }
 
-        binding.imgRedButton.setOnClickListener {
+        ibtButton.setOnClickListener {
+            ViewAnim.animRedButton(ibtButton, "start", 0)
             ViewAnim.animTextViewStart(viewTxtComb)
-            ViewAnim.animTextViewStart(viewTxtCount)
             btnClicked = true
-            viewModel.rollDice()
+            rollDice()
         }
-
         return binding.root
+    }
+
+    private fun rollDice() {
+        ObjectAnimator.ofFloat(viewTxtCount, "alpha", 1f, 0f)
+            .apply {
+                duration = ANIM_TEXT_START
+                start()
+            }.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator?) {
+                    super.onAnimationEnd(animation)
+                    viewModel.rollDice()
+                }
+            })
     }
 
     private fun setDiceVisible(count: Int?) {
@@ -101,7 +121,6 @@ class DiceFragment : Fragment() {
         imageViews?.get(0)?.isGone = false
         viewTxtCount.text = "0"
         viewTxtComb.isInvisible = true
-//        setPaddingToHigh(binding)
         imageViews?.get(1)?.isGone = true
         imageViews?.get(2)?.isGone = true
         imageViews?.get(3)?.isGone = true
@@ -126,18 +145,19 @@ class DiceFragment : Fragment() {
                 imageViews?.get(i)?.let {
                     ViewAnim.animDice(it, drawableId, animDelay)
                 }
-                textAnimation(i, animDelay)
             } else {
                 imageViews?.get(i)?.setImageResource(drawableId)
             }
         }
-        btnClicked = false
+        animTextAndButton(animDelay)
     }
 
-    private fun textAnimation(i: Int, animDelay: Long) {
-        if (i == imageViews?.size?.minus(1) ?: 5) {
+    private fun animTextAndButton(animDelay: Long) {
+        if (btnClicked) {
             ViewAnim.animTextViewEnd(viewTxtComb, animDelay)
             ViewAnim.animTextViewEnd(viewTxtCount, animDelay)
+            ViewAnim.animRedButton(ibtButton, "end", animDelay)
+            btnClicked = false
         }
     }
 
