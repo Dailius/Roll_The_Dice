@@ -6,21 +6,17 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.view.View
 import android.view.animation.AccelerateInterpolator
-import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.animation.addListener
 import com.dailiusprograming.rolldice.ANIM_DICE_END
 import com.dailiusprograming.rolldice.ANIM_DICE_START
 import com.dailiusprograming.rolldice.ANIM_IBTN
 import com.dailiusprograming.rolldice.ANIM_TEXT_START
 import com.dailiusprograming.rolldice.fragments.DiceFragment
-import kotlinx.coroutines.delay
 
 
 class ViewAnim {
-
 
     companion object {
         private lateinit var diceFragment: DiceFragment
@@ -97,14 +93,14 @@ class ViewAnim {
             }
         }
 
-        fun animRedButton(view: View, status: String, delayAnim: Long){
+        fun animRedButton(view: View, status: String, delayAnim: Long) {
             var valFrom = 1f
             var valTo = 0f
-            if (status === "end"){
+            if (status === "end") {
                 valFrom = 0f
                 valTo = 1f
             } else {
-                view.isEnabled=false
+                view.isEnabled = false
             }
             ObjectAnimator.ofFloat(
                 view,
@@ -117,7 +113,7 @@ class ViewAnim {
                 start()
             }.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
-                    if (status === "end")view.isEnabled=true
+                    if (status === "end") view.isEnabled = true
                     super.onAnimationEnd(animation)
                 }
             })

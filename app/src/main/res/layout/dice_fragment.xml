@@ -10,29 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:clickable="true"
-            android:contentDescription="@string/add_the_dice"
-            android:focusable="true"
-            android:src="@drawable/ic_add"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout" />
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="45dp"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ibtRedButton"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:context=".MainActivity">
 
             <TextView
@@ -41,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:paddingTop="60dp"
                 android:text="@string/count"
                 android:textColor="@color/black"
                 android:textSize="100sp" />
@@ -117,17 +106,35 @@
 
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/ibtRedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:contentDescription="@string/red_button"
-                android:scaleType="centerCrop"
-                android:src="@drawable/red_button_scd" />
-
 
         </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_the_dice"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ibtRedButton"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:background="@color/white"
+            android:contentDescription="@string/red_button"
+            android:scaleType="centerCrop"
+            android:src="@drawable/red_button_scd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
