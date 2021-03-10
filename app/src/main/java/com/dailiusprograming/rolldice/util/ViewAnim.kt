@@ -74,7 +74,7 @@ class ViewAnim {
 
         fun animTextViewEnd(textView: TextView, delayAnim: Long) {
             val animate: ObjectAnimator = animView(
-                textView, "alpha", 0f, 1f, 1000
+                textView, "alpha", 0f, 1f, 500
             )
             AnimatorSet().apply {
                 play(animate)

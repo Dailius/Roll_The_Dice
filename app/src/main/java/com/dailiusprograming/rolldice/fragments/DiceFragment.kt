@@ -8,16 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isGone
-
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dailiusprograming.rolldice.ANIM_TEXT_START
 import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
 import com.dailiusprograming.rolldice.util.ViewAnim
-import kotlinx.android.synthetic.main.dice_fragment.*
 
 class DiceFragment : Fragment() {
 
@@ -26,19 +25,10 @@ class DiceFragment : Fragment() {
     private lateinit var viewTxtCount: TextView
     private lateinit var viewTxtComb: TextView
     private lateinit var ibtButton: ImageButton
+    private lateinit var lnrLayout3: LinearLayout
     private var btnClicked: Boolean = false
 
-    private val rDrawableDice  =
-        arrayOf(
-            R.drawable.bp_dice1,
-            R.drawable.bp_dice2,
-            R.drawable.bp_dice3,
-            R.drawable.bp_dice4,
-            R.drawable.bp_dice5,
-            R.drawable.bp_dice6
-        )
-
-
+    private lateinit var rDrawableDice: IntArray
 
     private val imageViews by lazy {
         diceFragmentBinding?.let {
@@ -64,9 +54,14 @@ class DiceFragment : Fragment() {
         viewTxtCount = binding.txtCount
         viewTxtComb = binding.txtCombination
         ibtButton = binding.ibtRedButton
+        lnrLayout3 = binding.linearLayout3
 
         viewModel = ViewModelProvider(this)
             .get(DiceViewModel::class.java)
+
+        viewModel.rDrawableDice.observe(viewLifecycleOwner, {
+            rDrawableDice = it
+        })
 
         viewModel.diceAdd.observe(viewLifecycleOwner, {
             setDiceVisible(it)
@@ -75,6 +70,7 @@ class DiceFragment : Fragment() {
         viewModel.diceCombinationName.observe(viewLifecycleOwner, {
             viewTxtComb.text = getString(it)
         })
+
 
         viewModel.randomDice.observe(viewLifecycleOwner, {
             updateDisplay(it)
@@ -118,7 +114,7 @@ class DiceFragment : Fragment() {
             if (count >= 2) imageViews?.get(1)?.isGone = false
 
             if (count >= 3) {
-                linearLayout3.isGone = false
+                lnrLayout3.isGone = false
                 imageViews?.get(2)?.isGone = false
             }
             if (count >= 4) {
@@ -138,7 +134,7 @@ class DiceFragment : Fragment() {
         viewTxtComb.isGone = true
         imageViews?.get(1)?.isGone = true
         imageViews?.get(2)?.isGone = true
-        linearLayout3.isGone = true
+        lnrLayout3.isGone = true
         imageViews?.get(3)?.isGone = true
         imageViews?.get(4)?.isGone = true
     }
@@ -165,7 +161,7 @@ class DiceFragment : Fragment() {
                 imageViews?.get(i)?.setImageResource(drawableId)
             }
         }
-        animDelay = if(imageViews?.size!! > 3) animDelay + 700 else animDelay - 150
+        animDelay = if (imageViews?.size!! > 2) animDelay + 500 else 0
         animTextAndButton(animDelay)
     }
 

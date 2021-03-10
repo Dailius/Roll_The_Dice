@@ -2,6 +2,7 @@ package com.dailiusprograming.rolldice.fragments
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dailiusprograming.rolldice.data.DiceData
 import com.dailiusprograming.rolldice.util.AppPreferences
 import com.dailiusprograming.rolldice.util.DiceHelper
 
@@ -11,11 +12,13 @@ class DiceViewModel() : ViewModel() {
     val randomDice = MutableLiveData<IntArray>()
     val diceCalc = MutableLiveData<Int>()
     val diceAdd = MutableLiveData<Int>()
+    val rDrawableDice = MutableLiveData<IntArray>()
 
 
     init {
         diceAdd.value = AppPreferences.diceNo
         randomDice.value = AppPreferences.diceRoll
+        getDrawableDice()
         diceCombinationName.value = DiceHelper.evaluateDice(randomDice.value)
         diceCalc.value = DiceHelper.calculateDice(diceAdd.value, randomDice.value)
     }
@@ -33,4 +36,7 @@ class DiceViewModel() : ViewModel() {
         diceCalc.value = DiceHelper.calculateDice(diceAdd.value, randomDice.value)
     }
 
+    private fun getDrawableDice(){
+        rDrawableDice.value = DiceData.drawableDiceData("brown")
+    }
 }
