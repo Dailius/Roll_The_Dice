@@ -131,12 +131,12 @@ class DiceFragment : Fragment() {
         var animDelay: Long = 0
         for (i in 0 until (imageViews?.size ?: 0)) {
             val drawableId = when (dice[i]) {
-                1 -> R.drawable.wp_dice1
-                2 -> R.drawable.wp_dice2
-                3 -> R.drawable.wp_dice3
-                4 -> R.drawable.wp_dice4
-                5 -> R.drawable.wp_dice5
-                6 -> R.drawable.wp_dice6
+                1 -> R.drawable.bp_dice1
+                2 -> R.drawable.bp_dice2
+                3 -> R.drawable.bp_dice3
+                4 -> R.drawable.bp_dice4
+                5 -> R.drawable.bp_dice5
+                6 -> R.drawable.bp_dice6
                 else -> R.drawable.ic_add
             }
             animDelay += 150

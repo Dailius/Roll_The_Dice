@@ -42,7 +42,7 @@ class ViewAnim {
             )
             val startRotateDice: ObjectAnimator = animView(
                 imageView,
-                "rotation", 0f, 180f
+                "rotation", 0f, 360f
             )
 
             startAnimDiceX.addListener(object : AnimatorListenerAdapter() {
@@ -62,7 +62,7 @@ class ViewAnim {
             )
             val endRotateDice: ObjectAnimator = animView(
                 imageView,
-                "rotation", 0f, 180f, ANIM_DICE_END, true
+                "rotation", 0f, 360f, ANIM_DICE_END, true
             )
 
             AnimatorSet().apply {
