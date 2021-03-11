@@ -19,4 +19,14 @@
     </style>
     <style name="Theme.Rolldice.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="Theme.Rolldice.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="Dialog">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+    </style>
+
+
 </resources>

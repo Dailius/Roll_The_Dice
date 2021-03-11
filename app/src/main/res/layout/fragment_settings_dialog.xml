@@ -9,16 +9,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:elegantTextHeight="true"
             android:fontFamily="@font/sanchez_italic"
-            android:text="Choose the dice collar"
+            android:gravity="center"
+            android:text="@string/choose_the_dice_collar"
+            android:textAlignment="gravity"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,6 @@
                 android:layout_width="98dp"
                 android:layout_height="89dp"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:src="@drawable/wp_dice1" />
 
             <ImageButton
@@ -66,7 +66,9 @@
             android:layout_marginTop="32dp"
             android:elegantTextHeight="true"
             android:fontFamily="@font/sanchez_italic"
-            android:text="Choose the dice number"
+            android:gravity="center"
+            android:text="@string/choose_the_dice_number"
+            android:textAlignment="gravity"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +93,7 @@
 
             <TextView
                 android:id="@+id/txtDiceNo"
-                android:layout_width="98dp"
+                android:layout_width="70dp"
                 android:layout_height="89dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/sanchez"
@@ -107,6 +109,34 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_arrow_right" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/sanchez"
+            android:text="@string/ok"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/sanchez"
+            android:text="@string/cancel"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnOk"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
