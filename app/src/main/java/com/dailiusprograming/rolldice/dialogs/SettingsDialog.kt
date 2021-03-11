@@ -20,7 +20,7 @@ class SettingsDialog : DialogFragment() {
     private lateinit var btnRightDiceColor: ImageButton
     private lateinit var btnLeftDiceNo: ImageButton
     private lateinit var btnRightDiceNo: ImageButton
-    private var drawableId = R.drawable.bp_dice1
+    private var drawableId = R.drawable.pp_dice1
 
 
     override fun onCreateView(
@@ -37,17 +37,19 @@ class SettingsDialog : DialogFragment() {
         btnLeftDiceNo = rootView.findViewById<ImageButton>(R.id.ibtLeftDiceNo)
         btnRightDiceNo = rootView.findViewById<ImageButton>(R.id.ibtRightDiceNo)
 
+        imgDiceColor.setImageResource(R.drawable.bp_dice1)
+        txtDiceNo.text = "5"
+
         val btnCancel  = rootView.findViewById<Button>(R.id.btnCancel)
         btnCancel.setOnClickListener{ dismiss()}
 
         val btnOk  = rootView.findViewById<Button>(R.id.btnOk)
-        btnCancel.setOnClickListener{ dismiss()}
+        btnOk.setOnClickListener{ SaveData()}
 
         btnRightDiceColor.setOnClickListener{nextDiceColor()}
         btnLeftDiceColor.setOnClickListener{previousDiceColor()}
         btnRightDiceNo.setOnClickListener{nextDiceNo()}
         btnLeftDiceNo.setOnClickListener{previousDiceNo()}
-
 
         return rootView
     }
@@ -70,25 +72,25 @@ class SettingsDialog : DialogFragment() {
     }
 
     private fun nextDiceNo(){
-        var diceNo = 1
-//        diceNo = when(txtDiceNo.text){
-//            "5" -> 1
-//            else -> txtDiceNo.text
-//        }
+        val diceNo = when(diceNo()){
+            5 -> 1
+            else -> diceNo() + 1
+        }
         txtDiceNo.text = diceNo.toString()
     }
 
-    private fun previousDiceNo(){
-//        val arrayIndex = diceColorList().indexOfFirst { it == drawableId }
-//        drawableId = if (arrayIndex == diceColorList()[0] ){
-//            diceColorList()[3]
-//        } else {
-//            diceColorList()[arrayIndex-1]
-//        }
-//        imageResource()
+    private fun diceNo():Int{
+        val txtNo: String = txtDiceNo.text.toString()
+        return Integer.valueOf(txtNo)
     }
 
-
+    private fun previousDiceNo(){
+        val diceNo = when(diceNo()){
+            1 -> 5
+            else -> diceNo() - 1
+        }
+        txtDiceNo.text = diceNo.toString()
+    }
 
     private fun diceColorList(): IntArray{
         return intArrayOf(
@@ -97,6 +99,10 @@ class SettingsDialog : DialogFragment() {
             R.drawable.pp_dice1,
             R.drawable.rp_dice1
         )
+    }
+
+    fun SaveData(){
+
     }
 
 
