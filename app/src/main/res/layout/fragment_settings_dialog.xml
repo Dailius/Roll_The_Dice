@@ -37,21 +37,21 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <ImageButton
-                android:id="@+id/ibtLeftDiceCollar"
+                android:id="@+id/ibtLeftDiceColor"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_arrow_left" />
 
             <ImageView
-                android:id="@+id/imgDiceCollar"
+                android:id="@+id/imgDiceColor"
                 android:layout_width="98dp"
                 android:layout_height="89dp"
                 android:layout_weight="1"
                 android:src="@drawable/wp_dice1" />
 
             <ImageButton
-                android:id="@+id/ibtRightDiceCollar"
+                android:id="@+id/ibtRightDiceColor"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
