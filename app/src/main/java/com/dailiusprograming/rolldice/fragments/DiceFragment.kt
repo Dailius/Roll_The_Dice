@@ -8,20 +8,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.dailiusprograming.rolldice.ANIM_TEXT_START
 import com.dailiusprograming.rolldice.R
-import com.dailiusprograming.rolldice.databinding.DiceFragmentBinding
+import com.dailiusprograming.rolldice.databinding.FragmentDiceBinding
 import com.dailiusprograming.rolldice.util.ViewAnim
 
 class DiceFragment : Fragment() {
 
-    private lateinit var viewModel: DiceViewModel
-    private var diceFragmentBinding: DiceFragmentBinding? = null
+    //    private lateinit var viewModel: DiceViewModel
+    private val viewModel: DiceViewModel by activityViewModels()
+
+    private var _binding: FragmentDiceBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var viewTxtCount: TextView
     private lateinit var viewTxtComb: TextView
     private lateinit var ibtButton: ImageButton
@@ -29,9 +34,18 @@ class DiceFragment : Fragment() {
     private var btnClicked: Boolean = false
 
     private lateinit var rDrawableDice: IntArray
+    private lateinit var imageViews: Array<ImageView>
 
-    private val imageViews by lazy {
-        diceFragmentBinding?.let {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+//        viewModel = ViewModelProvider(requireActivity()).get(DiceViewModel::class.java)
+
+        _binding = FragmentDiceBinding.inflate(inflater, container, false)
+
+        imageViews = binding.let {
             arrayOf(
                 it.imgDice1,
                 it.imgDice2,
@@ -40,24 +54,11 @@ class DiceFragment : Fragment() {
                 it.imgDice5
             )
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-
-        val binding = DiceFragmentBinding.inflate(inflater, container, false)
-        diceFragmentBinding = binding
 
         viewTxtCount = binding.txtCount
         viewTxtComb = binding.txtCombination
         ibtButton = binding.ibtRedButton
         lnrLayout3 = binding.linearLayout3
-
-        viewModel = ViewModelProvider(this)
-            .get(DiceViewModel::class.java)
 
         viewModel.rDrawableDice.observe(viewLifecycleOwner, {
             rDrawableDice = it
@@ -70,7 +71,6 @@ class DiceFragment : Fragment() {
         viewModel.diceCombinationName.observe(viewLifecycleOwner, {
             viewTxtComb.text = getString(it)
         })
-
 
         viewModel.randomDice.observe(viewLifecycleOwner, {
             updateDisplay(it)
@@ -111,37 +111,37 @@ class DiceFragment : Fragment() {
         setDiceDefault()
 
         if (count != null) {
-            if (count >= 2) imageViews?.get(1)?.isGone = false
+            if (count >= 2) imageViews[1].isGone = false
 
             if (count >= 3) {
                 lnrLayout3.isGone = false
-                imageViews?.get(2)?.isGone = false
+                imageViews[2].isGone = false
             }
             if (count >= 4) {
-                imageViews?.get(3)?.isGone = false
+                imageViews[3].isGone = false
 //                setPaddingToNormal(binding)
             }
             if (count >= 5) {
-                imageViews?.get(4)?.isGone = false
+                imageViews[4].isGone = false
                 viewTxtComb.isGone = false
             }
         }
     }
 
     private fun setDiceDefault() {
-        imageViews?.get(0)?.isGone = false
+        imageViews[0].isGone = false
         viewTxtCount.text = "0"
         viewTxtComb.isGone = true
-        imageViews?.get(1)?.isGone = true
-        imageViews?.get(2)?.isGone = true
+        imageViews[1].isGone = true
+        imageViews[2].isGone = true
         lnrLayout3.isGone = true
-        imageViews?.get(3)?.isGone = true
-        imageViews?.get(4)?.isGone = true
+        imageViews[3].isGone = true
+        imageViews[4].isGone = true
     }
 
     private fun updateDisplay(dice: IntArray) {
         var animDelay: Long = 0
-        for (i in 0 until (imageViews?.size ?: 0)) {
+        for (i in imageViews.indices) {
             val drawableId = when (dice[i]) {
                 1 -> rDrawableDice[0]
                 2 -> rDrawableDice[1]
@@ -154,14 +154,14 @@ class DiceFragment : Fragment() {
             animDelay += 150
 
             if (btnClicked) {
-                imageViews?.get(i)?.let {
+                imageViews[i].let {
                     ViewAnim.animDice(it, drawableId, animDelay)
                 }
             } else {
-                imageViews?.get(i)?.setImageResource(drawableId)
+                imageViews[i].setImageResource(drawableId)
             }
         }
-        animDelay = if (imageViews?.size!! > 2) animDelay + 500 else 0
+        animDelay = if (imageViews.size > 2) animDelay + 500 else 0
         animTextAndButton(animDelay)
     }
 
@@ -175,8 +175,7 @@ class DiceFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        diceFragmentBinding = null
+        _binding = null
         super.onDestroyView()
     }
-
 }

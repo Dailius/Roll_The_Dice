@@ -3,7 +3,7 @@
 
     <item
         android:title="@string/settings"
-        android:id="@+id/action_settings"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"/>
 
     <item

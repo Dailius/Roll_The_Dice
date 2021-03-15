@@ -17,6 +17,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="Theme.Rolldice.ActionBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="Theme.Rolldice.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="Theme.Rolldice.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 

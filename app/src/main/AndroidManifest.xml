@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Rolldice">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Rolldice.NoActionBar">
+            android:theme="@style/Theme.Rolldice.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,5 +23,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
+<!--    android:theme="@style/Theme.Rolldice.NoActionBar"-->
 </manifest>

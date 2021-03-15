@@ -9,7 +9,21 @@
         android:id="@+id/diceFragment"
         android:name="com.dailiusprograming.rolldice.fragments.DiceFragment"
         android:label="dice_fragment"
-        tools:layout="@layout/dice_fragment">
+        tools:layout="@layout/fragment_dice">
+
+        <action
+            android:id="@+id/action_diceFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dailiusprograming.rolldice.fragments.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" >
+
+        <action
+            android:id="@+id/action_settingsFragment_to_diceFragment"
+            app:destination="@id/diceFragment" />
     </fragment>
 
 </navigation>

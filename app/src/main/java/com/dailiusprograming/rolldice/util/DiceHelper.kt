@@ -22,7 +22,7 @@ class DiceHelper {
         }
 
         fun calculateDice(count: Int?, dice: IntArray?): Int {
-            var calculate: Int = 0
+            var calculate = 0
             if (count != null) {
                 for (i in 0 until count) {
                     calculate += dice?.get(i) ?: 1
@@ -44,7 +44,7 @@ class DiceHelper {
             )
 
             // Update the die counts for each of 5 dice
-            for (i in 0 until dice!!.size) {
+            for (i in dice!!.indices) {
                 val currentCount = result.getOrElse(dice[i]) { 0 }
                 result[dice[i]] = currentCount + 1
             }
@@ -93,8 +93,8 @@ class DiceHelper {
                     dice.contains(5)
         }
 
-        fun addDice(dice: Int): Int{
-            return if(dice>=5) 1 else dice+1
+        fun addDice(dice: Int): Int {
+            return if (dice >= 5) 1 else dice + 1
         }
     }
 }
