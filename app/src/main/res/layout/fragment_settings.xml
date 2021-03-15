@@ -33,26 +33,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ibtLeftDiceColor"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_arrow_left" />
+            app:srcCompat="@drawable/ic_arrow_left" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgDiceColor"
             android:layout_width="98dp"
             android:layout_height="89dp"
             android:layout_weight="1"
-            android:src="@drawable/wp_dice1" />
+            app:srcCompat="@drawable/wp_dice1" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ibtRightDiceColor"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_arrow_right" />
+            app:srcCompat="@drawable/ic_arrow_right" />
 
     </LinearLayout>
 
@@ -81,12 +81,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ibtLeftDiceNo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_arrow_left" />
+            app:srcCompat="@drawable/ic_arrow_left" />
 
         <TextView
             android:id="@+id/txtDiceNo"
@@ -95,16 +95,16 @@
             android:layout_weight="1"
             android:fontFamily="@font/sanchez"
             android:gravity="center|clip_vertical|center_vertical"
-            android:text="5"
+            tools:text="5"
             android:textAlignment="gravity"
             android:textSize="60sp" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ibtRightDiceNo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_arrow_right" />
+            app:srcCompat="@drawable/ic_arrow_right" />
     </LinearLayout>
 
     <Button

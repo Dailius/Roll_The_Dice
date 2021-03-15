@@ -8,12 +8,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.*
-
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
@@ -21,9 +21,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_nav)
+        setContentView(R.layout.activity_main)
 
-        navController = findNavController(R.id.navHostFragment)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        navController = navHostFragment.navController
+
+
         drawerLayout = findViewById(R.id.drawer_layout)
         myToolbar = findViewById(R.id.toolbar)
         setSupportActionBar(myToolbar)
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = object : ActionBarDrawerToggle(
             this, drawerLayout, myToolbar,
             R.string.open_nav_drawer, R.string.close_nav_drawer
-        ){}
+        ) {}
 
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         drawerLayout.closeDrawer(GravityCompat.START)
-        when(item.itemId){
+        when (item.itemId) {
             R.id.settingsFragment -> {
                 navController.navigate(R.id.action_diceFragment_to_settingsFragment)
             }
