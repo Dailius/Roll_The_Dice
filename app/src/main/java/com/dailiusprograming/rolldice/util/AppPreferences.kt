@@ -2,7 +2,7 @@ package com.dailiusprograming.rolldice.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.dailiusprograming.rolldice.DICE_TYPE_WHITE
+import com.dailiusprograming.rolldice.DICE_COLOR_ID
 import com.dailiusprograming.rolldice.PREF_NAME
 
 object AppPreferences {
@@ -12,7 +12,7 @@ object AppPreferences {
     //SharedPreferences variables
 
     private val DICE_NO = Pair("dice_no", 1)
-    private val DICE_TYPE = Pair("dice_type", DICE_TYPE_WHITE)
+    private val DICE_COLOR = Pair("dice_color", DICE_COLOR_ID)
     private val DICE_ROLL = Pair("dice_roll", intArrayOf(1, 1, 1, 1, 1).contentToString())
 
 
@@ -34,10 +34,10 @@ object AppPreferences {
             it.putInt(DICE_NO.first, value)
         }
 
-    var diceType: String
-        get() = preferences.getString(DICE_TYPE.first, DICE_TYPE.second) ?: ""
+    var diceColor: Int
+        get() = preferences.getInt(DICE_COLOR.first, DICE_COLOR.second) ?: 0
         set(value) = preferences.edit {
-            it.putString(DICE_TYPE.first, value)
+            it.putInt(DICE_COLOR.first, value)
         }
 
     var diceRoll: IntArray

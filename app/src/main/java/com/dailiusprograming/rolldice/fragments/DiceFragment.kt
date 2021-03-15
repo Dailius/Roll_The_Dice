@@ -21,7 +21,6 @@ import com.dailiusprograming.rolldice.util.ViewAnim
 
 class DiceFragment : Fragment() {
 
-    //    private lateinit var viewModel: DiceViewModel
     private val viewModel: DiceViewModel by activityViewModels()
 
     private var _binding: FragmentDiceBinding? = null
@@ -40,8 +39,6 @@ class DiceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-//        viewModel = ViewModelProvider(requireActivity()).get(DiceViewModel::class.java)
 
         _binding = FragmentDiceBinding.inflate(inflater, container, false)
 

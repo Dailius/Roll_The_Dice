@@ -4,12 +4,12 @@ import com.dailiusprograming.rolldice.R
 class DiceData ()  {
 
     companion object{
-        fun drawableDiceData (diceType: String): IntArray{
-            return when (diceType){
-                "blue" -> blue()
-                "green" -> green()
-                "pink" -> pink()
-                "red" -> red()
+        fun drawableDiceData (imgDrawableID: Int): IntArray{
+            return when (imgDrawableID){
+                R.drawable.bp_dice6 -> blue()
+                R.drawable.gp_dice6 -> green()
+                R.drawable.pp_dice6 -> pink()
+                R.drawable.rp_dice6 -> red()
                 else -> blue()
             }
         }

@@ -54,6 +54,14 @@ class SettingsFragment : Fragment() {
 
     private fun imageResource() {
         imgDiceColor.setImageResource(drawableId)
+//        return when(drawableId){
+//            R.drawable.bp_dice6 -> "blue"
+//            R.drawable.gp_dice6 -> "green"
+//            R.drawable.pp_dice6 -> "pink"
+//            R.drawable.rp_dice6 -> "red"
+//            else -> "none"
+//        }
+
     }
 
     private fun nextDiceColor() {
@@ -93,10 +101,10 @@ class SettingsFragment : Fragment() {
 
     private fun diceColorList(): IntArray {
         return intArrayOf(
-            R.drawable.bp_dice1,
-            R.drawable.gp_dice1,
-            R.drawable.pp_dice1,
-            R.drawable.rp_dice1
+            R.drawable.bp_dice6,
+            R.drawable.gp_dice6,
+            R.drawable.pp_dice6,
+            R.drawable.rp_dice6
         )
     }
 
@@ -109,6 +117,7 @@ class SettingsFragment : Fragment() {
 
         val btnOk = view.findViewById<Button>(R.id.btnOk)
         btnOk.setOnClickListener {
+            viewModel.getDrawableDice(drawableId)
             viewModel.addDice(diceNo())
             navController.navigateUp()
         }
