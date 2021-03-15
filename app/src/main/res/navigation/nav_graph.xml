@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/diceFragment"
         android:name="com.dailiusprograming.rolldice.fragments.DiceFragment"
-        android:label="dice_fragment"
+        android:label="Roll the dice"
         tools:layout="@layout/fragment_dice">
 
         <action
