@@ -15,6 +15,7 @@ import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.dailiusprograming.rolldice.ANIM_TEXT_START
+import com.dailiusprograming.rolldice.DiceViewModel
 import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.databinding.FragmentDiceBinding
 import com.dailiusprograming.rolldice.util.ViewAnim

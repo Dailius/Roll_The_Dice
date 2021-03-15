@@ -1,4 +1,4 @@
-package com.dailiusprograming.rolldice.fragments
+package com.dailiusprograming.rolldice
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
