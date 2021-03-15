@@ -14,6 +14,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.dailiusprograming.rolldice.R
+import com.dailiusprograming.rolldice.util.AppPreferences
 
 class SettingsFragment : Fragment() {
 
@@ -24,8 +25,9 @@ class SettingsFragment : Fragment() {
     private lateinit var btnRightDiceColor: ImageButton
     private lateinit var btnLeftDiceNo: ImageButton
     private lateinit var btnRightDiceNo: ImageButton
-    private var drawableId = R.drawable.pp_dice1
+    private var drawableId = R.drawable.bp_dice1
     private lateinit var navController: NavController
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,27 +43,21 @@ class SettingsFragment : Fragment() {
         btnLeftDiceNo = rootView.findViewById(R.id.ibtLeftDiceNo)
         btnRightDiceNo = rootView.findViewById(R.id.ibtRightDiceNo)
 
-        imgDiceColor.setImageResource(R.drawable.bp_dice1)
-        txtDiceNo.text = "5"
-
         btnRightDiceColor.setOnClickListener { nextDiceColor() }
         btnLeftDiceColor.setOnClickListener { previousDiceColor() }
         btnRightDiceNo.setOnClickListener { nextDiceNo() }
         btnLeftDiceNo.setOnClickListener { previousDiceNo() }
 
+        drawableId = AppPreferences.diceColor
+        imageResource()
+        txtDiceNo.text = AppPreferences.diceNo.toString()
+
         return rootView
     }
 
+
     private fun imageResource() {
         imgDiceColor.setImageResource(drawableId)
-//        return when(drawableId){
-//            R.drawable.bp_dice6 -> "blue"
-//            R.drawable.gp_dice6 -> "green"
-//            R.drawable.pp_dice6 -> "pink"
-//            R.drawable.rp_dice6 -> "red"
-//            else -> "none"
-//        }
-
     }
 
     private fun nextDiceColor() {
