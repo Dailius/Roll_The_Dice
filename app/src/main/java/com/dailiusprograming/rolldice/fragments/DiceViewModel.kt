@@ -2,7 +2,6 @@ package com.dailiusprograming.rolldice.fragments
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dailiusprograming.rolldice.R
 import com.dailiusprograming.rolldice.data.DiceData
 import com.dailiusprograming.rolldice.util.AppPreferences
 import com.dailiusprograming.rolldice.util.DiceHelper

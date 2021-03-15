@@ -39,7 +39,6 @@ class DiceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentDiceBinding.inflate(inflater, container, false)
 
         imageViews = binding.let {

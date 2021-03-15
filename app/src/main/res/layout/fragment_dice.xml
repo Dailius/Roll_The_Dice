@@ -28,9 +28,9 @@
 
             <TextView
                 android:id="@+id/txtCount"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/sanchez"
                 android:gravity="center"
                 android:text="@string/count"
                 android:textColor="@color/black"
@@ -38,8 +38,9 @@
 
             <TextView
                 android:id="@+id/txtCombination"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/sanchez_italic"
                 android:gravity="center"
                 android:paddingBottom="@dimen/padding_Normal_8dp"
                 android:text="@string/roll_again"

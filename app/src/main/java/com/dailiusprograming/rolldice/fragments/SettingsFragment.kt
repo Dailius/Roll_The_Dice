@@ -1,6 +1,5 @@
 package com.dailiusprograming.rolldice.fragments
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +13,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.dailiusprograming.rolldice.R
+import com.dailiusprograming.rolldice.databinding.FragmentSettingsBinding
 import com.dailiusprograming.rolldice.util.AppPreferences
 
 class SettingsFragment : Fragment() {
+
+    private var _binding: FragmentSettingsBinding? = null
+    private val binding get() = _binding!!
 
     private val viewModel: DiceViewModel by activityViewModels()
     private lateinit var imgDiceColor: ImageView
@@ -28,20 +31,18 @@ class SettingsFragment : Fragment() {
     private var drawableId = R.drawable.bp_dice1
     private lateinit var navController: NavController
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        val rootView: View = inflater.inflate(R.layout.fragment_settings, container, false)
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
-        imgDiceColor = rootView.findViewById(R.id.imgDiceColor)
-        txtDiceNo = rootView.findViewById(R.id.txtDiceNo)
-        btnLeftDiceColor = rootView.findViewById(R.id.ibtLeftDiceColor)
-        btnRightDiceColor = rootView.findViewById(R.id.ibtRightDiceColor)
-        btnLeftDiceNo = rootView.findViewById(R.id.ibtLeftDiceNo)
-        btnRightDiceNo = rootView.findViewById(R.id.ibtRightDiceNo)
+        imgDiceColor = binding.imgDiceColor
+        txtDiceNo = binding.txtDiceNo
+        btnLeftDiceColor = binding.ibtLeftDiceColor
+        btnRightDiceColor = binding.ibtRightDiceColor
+        btnLeftDiceNo = binding.ibtLeftDiceNo
+        btnRightDiceNo = binding.ibtRightDiceNo
 
         btnRightDiceColor.setOnClickListener { nextDiceColor() }
         btnLeftDiceColor.setOnClickListener { previousDiceColor() }
@@ -52,9 +53,8 @@ class SettingsFragment : Fragment() {
         imageResource()
         txtDiceNo.text = AppPreferences.diceNo.toString()
 
-        return rootView
+        return binding.root
     }
-
 
     private fun imageResource() {
         imgDiceColor.setImageResource(drawableId)
@@ -117,5 +117,10 @@ class SettingsFragment : Fragment() {
             viewModel.addDice(diceNo())
             navController.navigateUp()
         }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 }
