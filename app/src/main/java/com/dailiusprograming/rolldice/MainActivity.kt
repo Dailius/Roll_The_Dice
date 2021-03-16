@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 navController.navigate(R.id.action_diceFragment_to_settingsFragment)
             }
             R.id.action_about -> {
-                navController.navigate(R.id.action_settingsFragment_to_diceFragment)
+                navController.navigate(R.id.action_diceFragment_to_aboutFragment)
             }
         }
         return true

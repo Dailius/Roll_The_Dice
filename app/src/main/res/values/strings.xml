@@ -40,7 +40,21 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_text">
+        <![CDATA[
+        Roll the dice is free, simple and lightweight app
+        <br><u>WITHOUT ADDS.</u></br><br/>
+        <br> You can roll up to 5 dices and choose a color. Just tap the red button to roll. It is simple and easy to use. </br>
+        <br>This app is useful when you need random number generation, play board games etc.</br><br/>
+        <br>Features:</br>
+        <br>* Roll up to 5 dices at once</br>
+        <br>* Tap the red button to roll</br>
+        <br>* Display total result on screen</br>
+        <br>* Display combination names of 5 deices result:</br>
+        <br/> One or two pairs; <br/>3, 4  and 5 of a kind; <br/>Straight; <br/>Full house.<br/><br/>
+        Please contact me at dailiusprograming@gmail.com with questions, concerns or suggestions!
+        ]]>
+</string>
     <string name="choose_the_dice_collar">Choose the dice collar</string>
     <string name="choose_the_dice_number">Choose the dice number</string>
     <string name="ok">OK</string>

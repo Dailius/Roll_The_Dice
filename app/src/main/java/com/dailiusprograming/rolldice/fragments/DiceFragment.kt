@@ -57,12 +57,12 @@ class DiceFragment : Fragment() {
         ibtButton = binding.ibtRedButton
         lnrLayout3 = binding.linearLayout3
 
-        viewModel.rDrawableDice.observe(viewLifecycleOwner, {
-            rDrawableDice = it
-        })
-
         viewModel.diceAdd.observe(viewLifecycleOwner, {
             setDiceVisible(it)
+        })
+
+        viewModel.rDrawableDice.observe(viewLifecycleOwner, {
+            rDrawableDice = it
         })
 
         viewModel.diceCombinationName.observe(viewLifecycleOwner, {
@@ -116,7 +116,6 @@ class DiceFragment : Fragment() {
             }
             if (diceNo >= 4) {
                 imageViews[3].isGone = false
-//                setPaddingToNormal(binding)
             }
             if (diceNo >= 5) {
                 imageViews[4].isGone = false

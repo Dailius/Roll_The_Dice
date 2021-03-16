@@ -12,5 +12,5 @@
         android:layout_width="wrap_content"
         android:layout_height="152dp"
         android:contentDescription="@string/dice"
-        android:src="@drawable/wooden_dices_wht_background" />
+        app:srcCompat="@drawable/dices" />
 </LinearLayout>
