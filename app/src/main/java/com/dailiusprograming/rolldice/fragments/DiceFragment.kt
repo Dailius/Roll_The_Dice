@@ -103,22 +103,22 @@ class DiceFragment : Fragment() {
             })
     }
 
-    private fun setDiceVisible(count: Int?) {
+    private fun setDiceVisible(diceNo: Int? = 1) {
 
         setDiceDefault()
 
-        if (count != null) {
-            if (count >= 2) imageViews[1].isGone = false
+        if (diceNo != null) {
+            if (diceNo >= 2) imageViews[1].isGone = false
 
-            if (count >= 3) {
+            if (diceNo >= 3) {
                 lnrLayout3.isGone = false
                 imageViews[2].isGone = false
             }
-            if (count >= 4) {
+            if (diceNo >= 4) {
                 imageViews[3].isGone = false
 //                setPaddingToNormal(binding)
             }
-            if (count >= 5) {
+            if (diceNo >= 5) {
                 imageViews[4].isGone = false
                 viewTxtComb.isGone = false
             }
@@ -158,7 +158,7 @@ class DiceFragment : Fragment() {
                 imageViews[i].setImageResource(drawableId)
             }
         }
-        animDelay = if (imageViews.size > 2) animDelay + 500 else 0
+        animDelay = 1200
         animTextAndButton(animDelay)
     }
 

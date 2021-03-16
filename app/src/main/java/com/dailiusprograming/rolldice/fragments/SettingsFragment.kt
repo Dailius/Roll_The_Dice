@@ -51,7 +51,9 @@ class SettingsFragment : Fragment() {
         btnLeftDiceNo.setOnClickListener { previousDiceNo() }
 
         drawableId = AppPreferences.diceColor
+        if (drawableId == 0){drawableId = R.drawable.bp_dice6}
         imageResource()
+
         txtDiceNo.text = AppPreferences.diceNo.toString()
 
         return binding.root
