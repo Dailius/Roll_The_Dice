@@ -8,6 +8,7 @@ Roll the dice is simple and lightweight app.  You can roll up to 5 dices, choose
 * Tap the red button to roll
 * Stores last resut and settings
 * Display total result on screen
+* Image animation
 * Display combination names of 5 deices result:
 	- pair
 	- two pairs
