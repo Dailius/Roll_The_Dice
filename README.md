@@ -18,7 +18,10 @@ Roll the dice is simple and lightweight app.  You can roll up to 5 dices, choose
 	- full house
   
 # Screens
-
+![screen](https://github.com/Dailius/Roll_The_Dice/blob/master/dice_mob_screan1.jpg)
+![screen](https://github.com/Dailius/Roll_The_Dice/blob/master/dice_mob_screan2.jpg)
+![screen](https://github.com/Dailius/Roll_The_Dice/blob/master/dice_mob_screan3.jpg)
+![screen](https://github.com/Dailius/Roll_The_Dice/blob/master/dice_mob_screan4.jpg)
 
 # Libraries
 
