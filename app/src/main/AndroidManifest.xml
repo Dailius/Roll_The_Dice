@@ -3,6 +3,7 @@
     package="com.dailiusprograming.rolldice">
 
     <application
+        android:allowBackup="true"
         android:name=".util.AppPrefInit"
         android:icon="@mipmap/ic_dice"
         android:label="@string/app_name"

@@ -43,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/left_button_dice_color"
                 app:srcCompat="@drawable/ic_arrow_left" />
 
             <ImageView
@@ -50,6 +51,7 @@
                 android:layout_width="98dp"
                 android:layout_height="89dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/image_with_dice_color"
                 app:srcCompat="@drawable/wp_dice1" />
 
             <ImageButton
@@ -57,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:contentDescription="@string/right_button_dice_color"
                 app:srcCompat="@drawable/ic_arrow_right" />
 
         </LinearLayout>

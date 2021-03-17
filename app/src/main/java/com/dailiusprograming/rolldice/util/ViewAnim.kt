@@ -13,20 +13,16 @@ import com.dailiusprograming.rolldice.ANIM_DICE_END
 import com.dailiusprograming.rolldice.ANIM_DICE_START
 import com.dailiusprograming.rolldice.ANIM_IBTN
 import com.dailiusprograming.rolldice.ANIM_TEXT_START
-import com.dailiusprograming.rolldice.fragments.DiceFragment
-
 
 class ViewAnim {
 
     companion object {
-        private lateinit var diceFragment: DiceFragment
 
         fun animDice(
             imageView: ImageView,
             drawableId: Int,
             delayAnim: Long
         ) {
-
 
             val startAnimDiceX: ObjectAnimator = animView(
                 imageView,
@@ -139,6 +135,4 @@ class ViewAnim {
         }
 
     }
-
-
 }

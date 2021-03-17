@@ -7,7 +7,6 @@
     <string name="close_nav_drawer">Close navigation drawer</string>
     <string name="count">0</string>
     <string name="roll_again">Roll again!</string>
-    <string name="roll">Roll</string>
     <string name="dice_1">Dice 1</string>
     <string name="dice_2">Dice_2</string>
     <string name="dice_3">Dice_3</string>
@@ -22,24 +21,7 @@
     <string name="two_pairs">Two pairs!</string>
     <string name="nothing_special">Nothing special</string>
     <string name="add_the_dice">Add the Dice</string>
-    <string name="roll_button">Roll button</string>
-    <string name="welcome">Welcome!</string>
     <string name="red_button">Red button</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="about_text">
         <![CDATA[
         Roll the dice is free, simple and lightweight app
@@ -59,5 +41,9 @@
     <string name="choose_the_dice_number">Choose the dice number</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="dice_picture">Dice picture</string>
+    <string name="left_button_dice_color">Left button to choose the dice color</string>
+    <string name="image_with_dice_color">Image with dice color</string>
+    <string name="right_button_dice_color">Right button to choose the dice color</string>
 
 </resources>

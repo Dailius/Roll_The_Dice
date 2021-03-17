@@ -35,15 +35,15 @@ object AppPreferences {
         }
 
     var diceColor: Int
-        get() = preferences.getInt(DICE_COLOR.first, DICE_COLOR.second) ?: 0
+        get() = preferences.getInt(DICE_COLOR.first, DICE_COLOR.second)
         set(value) = preferences.edit {
             it.putInt(DICE_COLOR.first, value)
         }
 
     var diceRoll: IntArray
         get() = preferences.getString(DICE_ROLL.first, DICE_ROLL.second)
-            ?.removeSurrounding("[","]")?.replace(" ","")
-            ?.split(",")?.map{it.toInt()}?.toIntArray()
+            ?.removeSurrounding("[", "]")?.replace(" ", "")
+            ?.split(",")?.map { it.toInt() }?.toIntArray()
             ?: intArrayOf(2, 3, 4, 5, 6)
         set(value) = preferences.edit {
             it.putString(DICE_ROLL.first, value.contentToString())
