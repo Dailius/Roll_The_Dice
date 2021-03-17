@@ -28,6 +28,7 @@ Roll the dice is simple and lightweight app.  You can roll up to 5 dices, choose
 
 * [Appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat)
 * [Fragment](https://developer.android.com/jetpack/androidx/releases/fragment)
+* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [Lifesycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)
 * [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation)
 * [Room](https://developer.android.com/jetpack/androidx/releases/room)
