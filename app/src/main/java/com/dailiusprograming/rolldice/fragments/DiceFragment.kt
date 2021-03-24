@@ -30,7 +30,7 @@ class DiceFragment : Fragment() {
     private lateinit var viewTxtCount: TextView
     private lateinit var viewTxtComb: TextView
     private lateinit var ibtButton: ImageButton
-    private lateinit var lnrLayout3: LinearLayout
+//    private lateinit var lnrLayout3: LinearLayout
     private var btnClicked: Boolean = false
 
     private lateinit var rDrawableDice: IntArray
@@ -55,7 +55,7 @@ class DiceFragment : Fragment() {
         viewTxtCount = binding.txtCount
         viewTxtComb = binding.txtCombination
         ibtButton = binding.ibtRedButton
-        lnrLayout3 = binding.linearLayout3
+//        lnrLayout3 = binding.linearLayout3
 
         viewModel.diceAdd.observe(viewLifecycleOwner, {
             setDiceVisible(it)
@@ -111,7 +111,7 @@ class DiceFragment : Fragment() {
             if (diceNo >= 2) imageViews[1].isGone = false
 
             if (diceNo >= 3) {
-                lnrLayout3.isGone = false
+//                lnrLayout3.isGone = false
                 imageViews[2].isGone = false
             }
             if (diceNo >= 4) {
@@ -130,7 +130,7 @@ class DiceFragment : Fragment() {
         viewTxtComb.isGone = true
         imageViews[1].isGone = true
         imageViews[2].isGone = true
-        lnrLayout3.isGone = true
+//        lnrLayout3.isGone = true
         imageViews[3].isGone = true
         imageViews[4].isGone = true
     }

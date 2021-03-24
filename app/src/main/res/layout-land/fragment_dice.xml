@@ -11,20 +11,10 @@
         android:layout_height="match_parent"
         android:background="#FFFFFF">
 
-        <Space
-            android:id="@+id/space"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            app:layout_constraintBottom_toTopOf="@+id/ibtRedButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageButton
             android:id="@+id/ibtRedButton"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
             android:background="@color/white"
             android:contentDescription="@string/red_button"
             android:scaleType="centerCrop"
@@ -33,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/space" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -50,10 +40,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:orientation="vertical"
@@ -67,17 +56,17 @@
 
             <TextView
                 android:id="@+id/txtCount"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sanchez"
                 android:gravity="center"
                 android:text="@string/count"
                 android:textColor="@color/black"
-                android:textSize="70sp" />
+                android:textSize="60sp" />
 
             <TextView
                 android:id="@+id/txtCombination"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/sanchez_italic"
@@ -85,7 +74,7 @@
                 android:paddingBottom="8dp"
                 android:text="@string/roll_again"
                 android:textAlignment="center"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:visibility="visible" />
 
             <LinearLayout
@@ -98,24 +87,24 @@
 
                 <ImageView
                     android:id="@+id/imgDice1"
-                    android:layout_width="98dp"
-                    android:layout_height="89dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/dice_1"
                     android:src="@drawable/wp_dice1"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgDice2"
-                    android:layout_width="98dp"
-                    android:layout_height="89dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/dice_2"
                     android:src="@drawable/wp_dice2"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgDice3"
-                    android:layout_width="98dp"
-                    android:layout_height="89dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/dice_3"
                     android:src="@drawable/wp_dice3"
                     android:visibility="visible" />
@@ -131,16 +120,16 @@
 
                 <ImageView
                     android:id="@+id/imgDice4"
-                    android:layout_width="98dp"
-                    android:layout_height="89dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/dice_4"
                     android:src="@drawable/wp_dice4"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgDice5"
-                    android:layout_width="98dp"
-                    android:layout_height="89dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:contentDescription="@string/dice_5"
                     android:src="@drawable/wp_dice5"
                     android:visibility="visible" />
