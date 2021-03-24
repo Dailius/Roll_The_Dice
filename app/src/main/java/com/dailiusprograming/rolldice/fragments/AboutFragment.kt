@@ -15,7 +15,7 @@ class AboutFragment : Fragment() {
 
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
-    lateinit var txtAbout: TextView
+    private lateinit var txtAbout: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,7 @@ class AboutFragment : Fragment() {
 
         txtAbout.text = Html.fromHtml(getString(R.string.about_text))
         txtAbout.movementMethod = ScrollingMovementMethod()
-        
+
 
         return binding.root
     }
